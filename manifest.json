@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+
+  "name": "Abi Shortcuts",
+  "description": "This extension adds a few helpful shortcuts to chrome browser.",
+  "version": "1.0",
+  "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "bookmarks"
+  ],
+  "background": {
+    "scripts": ["background.js", "client.js"]
+  },
+  "commands": {
+    "translate": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A"
+      },
+      "description": "Check the current selected text in Google Translate service."
+    },
+    "bookmark": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X"
+      },
+      "description": "Move all open tabs to bookmark bar."
+    },
+    "shorturl": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Create a short version of active page URL."
+    }
+  }
+}
