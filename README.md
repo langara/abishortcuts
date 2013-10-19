@@ -16,6 +16,8 @@ list of commands:
 *   __Translate__ _(default key: Ctrl+Shift+A)_
 
     Takes the text selected on active tab, and opens a Google Translator in a new tab, with this text entered for translation.
+    There you have fast access to your favorite Google Translator features like a listening the pronunciation,
+    or starring the word in your own dictionary, or checking examples of this word in sentences :-)
 
 *   __Bookmark__ _(default key: Ctrl+Shift+X)_
 
