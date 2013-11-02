@@ -3,7 +3,7 @@ ABI Shortcuts
 
 This little project is a Google Chrome extension with a few commands activated by keyboard shortcuts.
 
-Now it contains only three commands (translate, bookmark, shorturl),
+Now it contains only four commands (translate, bookmark, shorturl, copytodrive),
 but it will grow with my needs to automate more operations.
 
 I guess it will be more useful as a base code for other developers, not as a finished product,
@@ -29,6 +29,10 @@ list of commands:
     It is useful if you want to write somewhere an URL address to active page, but it is too long.
     It uses Google URL Shortener API to create new short URL (like: `goo.gl/ABCDE`) that leads to the same page the long URL does.
     Check the [Google URL Shortener API documentation](http://goo.gl/bgD0D2) for more info.
+
+*   __CopyToDrive__ _(default key: Alt+Shift+C)_
+
+    It compies selected text on active page, and saves it as a "clipboard.txt" file on your google drive. (you can have more than one such file there)
 
 
 If some shortcut does nothing at all, check the [chrome://extensions](chrome://extensions) page.

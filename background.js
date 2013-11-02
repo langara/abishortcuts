@@ -9,7 +9,9 @@ chrome.commands.onCommand.addListener(function(command) {
 
 var cmd = {};
 
-cmd.API_KEY = 'AIzaSyD5vyQs7WkiAjFvr94emCm1wQ9DuZW56lM';
+cmd.API_KEY = 'AIzaSyAjebaw-1fPa_5APX0leYvl_TCLuiNlS9c';
+cmd.CLIENT_ID = '75561265292-3kf5aag63jv44k3jueco1t5o7ip96emm.apps.googleusercontent.com';
+cmd.SCOPES = 'https://www.googleapis.com/auth/drive';
 
 // COMMAND: translate (Default key: Ctrl+Shift+A)
 cmd.translate = function() {
@@ -60,6 +62,43 @@ cmd.shorturl_cb3 = function(res) {
     alert("Long URL: " + res.longUrl + "\nShort URL: " + res.id);
 };
 
+// COMMAND: shorturl (Default key: Alt+Shift+C)
+cmd.copytodrive = function() {
+	chrome.tabs.executeScript(null, {code:"window.getSelection().toString()"}, function(arr) {
+        cmd.clipboard = arr[0];
+        chrome.identity.getAuthToken({ 'interactive': true }, cmd.copytodrive_auth); //TODO: error handling; TODO: token refresh
+    });
+};
+
+
+cmd.copytodrive_auth = function(token) {
+    gapi.auth.setToken({access_token:token, state: cmd.SCOPES});
+
+    var request = gapi.client.request({
+        'path': 'drive/v2/files',
+        'method': 'POST',
+        'body': {
+            "title" : "clipboard.txt",
+            "description" : "This file contains a copy of text selected on page inside chrome browser"
+        }
+    });
+    request.execute(cmd.copytodrive_created);
+};
     
+
+cmd.copytodrive_created = function(result) {
+    console.log("created; result: ", result);
+    var request = gapi.client.request({
+        'path': '/upload/drive/v2/files/' + result.id,
+        'method': 'PUT',
+        'body': cmd.clipboard
+    });
+    request.execute(cmd.copytodrive_done);
+};
+
+
+cmd.copytodrive_done = function(result) {
+    console.log("done; result: ", result);
+};
 
 

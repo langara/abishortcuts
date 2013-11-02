@@ -3,6 +3,7 @@
 
   "name": "Abi Shortcuts",
   "description": "This extension adds a few helpful shortcuts to chrome browser.",
+  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDbKWxLnFCnXM7BwAMpWOw1qwLduHje5iYLmvgYVZlvHl1Zt4gIyRmSbsfQM7CfV2yWYRdaFrt82CjfaeTqvP3Xwj7YUsVyPO0DChqWI4CXkCwRGEf0O9RJAnsR3YNELu6pfDceGkJUrQGWPNBdvMaROS3DesCLbsy+oqUvV/0cSwIDAQAB",
   "version": "1.0",
   "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
   "browser_action": {
@@ -12,8 +13,15 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "bookmarks"
+    "bookmarks",
+    "identity"
   ],
+  "oauth2": {
+    "client_id": "75561265292-ibdoac1a9oe3h721agl83s3jbobcq7bp.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  },
   "background": {
     "scripts": ["background.js", "client.js"]
   },
@@ -35,6 +43,12 @@
         "default": "Ctrl+Shift+S"
       },
       "description": "Create a short version of active page URL."
+    },
+    "copytodrive": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "Copy the current selected text to the \"Drive Clipboard\""
     }
   }
 }
