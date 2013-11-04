@@ -32,7 +32,7 @@ list of commands:
 
 *   __CopyToDrive__ _(default key: Alt+Shift+C)_
 
-    It compies selected text on active page, and saves it as a "clipboard.txt" file on your google drive. (you can have more than one such file there)
+    It copies selected text on active page, and saves it as a "clipboard.txt" file on your google drive. (you can have more than one such file there)
 
 
 If some shortcut does nothing at all, check the [chrome://extensions](chrome://extensions) page.
